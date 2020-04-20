@@ -1,0 +1,224 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+#54C4CA
+#74c782
+#54B570
+#54B570
+#76CBE0
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  background-color: #000;
+  padding:30px;
+}
+
+.header{
+  height: 95vh;
+  background-image:url(../img/nebula.jpg);
+  background-size: contain;
+  background-position: top;
+  position: relative;
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
+}
+
+.logo-box{
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+.title{
+  color: #fff;
+  font-family: "Quantico", sans-serif;
+  font-size: 3vh;
+  font-weight: 400;
+  letter-spacing: 2px;
+  position:relative;
+}
+.logo{
+  height: 3vh;
+
+}
+
+.logo-box:hover{
+  animation: moveInRight 1s ease-out;
+}
+
+.text-box{
+position: absolute;
+top: 50%;
+left:50%;
+transform: translate(-50%,-50%);
+text-align: center;
+
+}
+
+.heading-primary{
+  color: #fff;
+  text-transform: uppercase;
+
+  backface-visibility: hidden;
+  margin-bottom:0px ;
+}
+
+.heading-primary-main{
+  display: block;
+  font-family: "Girassol", sans-serif;
+  font-size: 6vw;
+  font-weight: 300;
+  letter-spacing: 10px;
+
+  animation: moveInLeft 1s ease-out;
+  /*
+  animation-delay:2s;
+  */
+}
+
+.heading-primary-sub{
+  display: block;
+  font-size: 3vw;
+  font-weight: 400;
+  letter-spacing: 7.4px;
+
+  -webkit-animation: moveInRight 1s ease-out;
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft{
+  0%{
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80%{
+    transform: translateX(10px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
+
+}
+
+@keyframes moveInRight{
+  0%{
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80%{
+    transform: translateX(-10px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
+
+}
+
+.falcon{
+  height: 25vh;
+}
+
+
+.btn:link,
+.btn:visited{
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 2px 2px;
+  display: inline-block;
+  border-radius: 5px;
+  transition: all .2s;
+  position:relative; //this was used to hide the after psuedo element behind the
+
+}
+
+.btn:hover{
+  animation: spin 3s ease-out;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+
+}
+
+.btn:active{
+  animation: spin 3s ease-out;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+
+}
+
+.btn-white{
+  /* background-color: #fff; */
+  color:#777;
+}
+
+.btn::after{
+  content: "";   /* This creates an empty block that is a child of the parent element */
+  display: inline-block;
+  /* height: 100%; */
+  /* width: 100%; */
+  border-radius: 2px;
+  position: absolute; /* i believe this places the block behind the parent element essentially */
+  top: 0;
+  left: 0;
+  z-index:-1; /* pushes element behind button, changes the place on z axis */
+  transition: all .4s; /* this is the initial state, creates the transitions for a duration of .4s */
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after{
+  -webkit-transform: scale(1.2, 1.8);
+  -ms-transform: scale(1.2, 1.8);
+  transform: scale(1.2, 1.8);
+  opacity:0;
+}
+.btn-animated{
+  animation: moveInUp 1s ease-out 1s;
+  animation-fill-mode: backwards; /* basically gets the properties of the 0% of the animation and applies that css to the element to allow the element to be invisible for the duration of the delay*/
+}
+
+@keyframes moveInUp{
+  0%{
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
+
+}
+
+
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}

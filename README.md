@@ -1,1 +1,1 @@
-# choose-your-player
+# Choose Your Player
